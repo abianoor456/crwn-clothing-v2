@@ -3,7 +3,6 @@ import Button from "../button/button.component";
 import FormInput from "../form-input/form-input.component";
 import { signInWithGoogleEmailAndPassword } from "../../utils/firebase/firebase.utils"
 import './sign-in-form.styles.scss'
-
 const SignInForm = ({ onClickHandler }) => {
 
     const defaultFormFields = {
@@ -25,9 +24,8 @@ const SignInForm = ({ onClickHandler }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const response = await signInWithGoogleEmailAndPassword(email, password);
+        await signInWithGoogleEmailAndPassword(email, password);
         resetFormFields();
-        console.log(response);
     }
 
     return (

@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
 // Your web app's Firebase configuration
@@ -73,3 +73,7 @@ export const signInWithGoogleEmailAndPassword = (email, password) => signInWithE
             alert('Incorrect credentials')
         }
     });
+
+export const signOutUser = async () => await signOut(auth);
+
+export const onAuthStateChangeListener = (callback) => onAuthStateChanged(auth, callback)
